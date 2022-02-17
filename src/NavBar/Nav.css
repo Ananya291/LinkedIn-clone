@@ -1,0 +1,42 @@
+.header{
+    background-color: aqua;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-evenly;
+    border: 0.1px solid lightgray;
+    padding: 10px 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.header_left{
+    display: flex;
+}
+
+.header_right{
+    display: flex; 
+}
+
+.header_image{
+    height: 40px;
+    margin-right: 20px;
+}
+
+.header_search{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    height: 22px;
+    color: gray;
+    background-color: rgb(240,242,245);
+    border-radius: 5px;
+}
+
+.header_search > input{
+    border: none;
+    outline: none;
+    background: none;
+}
+
+
