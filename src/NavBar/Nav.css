@@ -1,42 +1,46 @@
 .header{
-    background-color: aqua;
+    background-color: white;
     position: sticky;
     top: 0;
     display: flex;
     justify-content: space-evenly;
     border: 0.1px solid lightgray;
-    padding: 10px 0;
+    padding: 5px 8%;
     width: 100%;
     z-index: 999;
 }
 
 .header_left{
     display: flex;
+    flex: 40%;
 }
 
 .header_right{
-    display: flex; 
+    display: flex;
+    flex: 60%;
 }
 
 .header_image{
     height: 40px;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .header_search{
     display: flex;
     padding: 10px;
     align-items: center;
-    height: 22px;
+    height: 18px;
     color: gray;
     background-color: rgb(240,242,245);
     border-radius: 5px;
+    
 }
 
 .header_search > input{
     border: none;
     outline: none;
     background: none;
+    width: 300px;
 }
 
 
