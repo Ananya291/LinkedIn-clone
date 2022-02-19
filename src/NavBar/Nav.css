@@ -6,18 +6,20 @@
     justify-content: space-evenly;
     border: 0.1px solid lightgray;
     padding: 5px 8%;
-    width: 100%;
+    /* width: 100%; */
     z-index: 999;
 }
 
 .header_left{
     display: flex;
-    flex: 40%;
+    flex: 50%;
+    background-color: blue;
 }
 
 .header_right{
     display: flex;
-    flex: 60%;
+    flex: 50%;
+    background-color: red;
 }
 
 .header_image{

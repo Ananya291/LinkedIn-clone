@@ -5,7 +5,9 @@
     flex: 0.2;
     height: fit-content;
     text-align: center;
-    margin-top: 20px;
+    /* margin-top: 20px; */
+    /* width: 100vw; */
+    margin:20px 0 30px 30px;
 }
 
 .sidebar_top_avatar{
@@ -40,6 +42,7 @@
     color: black;
     font-size: 18px;
     font-weight: 500;
+    cursor: pointer;
 }
 
 .sidebar_name_email > h4{
@@ -53,6 +56,12 @@
     padding:8px;
     margin: 8px;
     justify-content: space-evenly;
+}
+
+.sidebar_stats_top:hover{
+    background-color: whitesmoke;
+    border-bottom: 10px;
+    cursor: pointer;
 }
 
 .sidebar_stats_top{
@@ -81,5 +90,36 @@
     margin-top: 10px;
     background-color: white;
     border-radius: 10px;
-    border: 1px solid red !important;
+    border: 1px solid lightgray !important;
+}
+
+.sidebar_recentItems{
+    display: flex;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    color: gray;
+    font-weight:400;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.sidebar_recentItems:hover{
+    background-color: whitesmoke;
+    cursor: pointer;
+    border-bottom: 10px;
+    color: black;
+}
+
+.sidebar_hash{
+    color:#00000099 !important ;
+    font-size: 18px !important;
+    font-weight: bolder !important;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.sidebar_bottom >p {
+    font-size: 13px;
+    padding: 10px;
 }
