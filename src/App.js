@@ -1,6 +1,7 @@
 import './App.css';
 import Nav from './NavBar/Nav';
-import SideBar from './Components/SideBar/SideBar';
+import SideBar from './Components/Components/SideBar/SideBar';
+import Feed from './Components/Components/Feed/Feed';
 
 function App() {
   return (
@@ -10,10 +11,8 @@ function App() {
       <div className="App_body">
         {/* sidebar */}
         <SideBar />
-        <SideBar /> 
-        <SideBar />
-
         {/* feed */}
+        <Feed/>
         {/* widgets */}
       </div>
     </div>

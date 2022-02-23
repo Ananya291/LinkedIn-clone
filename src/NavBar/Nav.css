@@ -13,13 +13,11 @@
 .header_left{
     display: flex;
     flex: 50%;
-    background-color: blue;
 }
 
 .header_right{
     display: flex;
     flex: 50%;
-    background-color: red;
 }
 
 .header_image{
