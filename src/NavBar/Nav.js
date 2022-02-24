@@ -7,8 +7,17 @@ import BusinessCenterOutlinedIcon from '@material-ui/icons/BusinessCenterOutline
 import MessageIcon from '@material-ui/icons/Message';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import HeaderOptions from './HeaderOptions';
+import { useDispatch } from 'react-redux';
+import { auth } from '../Firebase';
+import { logout } from '../features/userSlice'
 
 function Nav() {
+  const dispatch = useDispatch();
+  const logOutOfApp = () =>{
+      dispatch(logout())
+      auth.signOut();
+  }
+
   return (
     <div className='header'>
       <div className="header_left">
@@ -27,7 +36,7 @@ function Nav() {
         <HeaderOptions Icon={BusinessCenterOutlinedIcon} title="Jobs" />
         <HeaderOptions Icon={MessageIcon} title="Messaging" />
         <HeaderOptions Icon={NotificationsIcon} title="Notification" />
-        <HeaderOptions avatar={true} title="Me" />
+        <HeaderOptions avatar={true} onClick={logOutOfApp} title="Me" />
 
       </div>
 

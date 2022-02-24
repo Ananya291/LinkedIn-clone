@@ -1,0 +1,20 @@
+.newsArticle{
+    margin-top: 5px;
+    display: flex;
+}
+
+.newsArticle_icon{
+   height: 10px!important;
+   color: #00000099;
+   margin: 0 5px 0;
+}
+
+.newsArticle_title{
+    font-weight: bold;
+}
+
+.newArticle_subtitle{
+    color: gray;
+    font-size: 12px;
+    margin-top: 5px;
+}

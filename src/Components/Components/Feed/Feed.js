@@ -14,7 +14,7 @@ import { selectUser } from '../../../features/userSlice'
 
 function Feed() {
 
-  const user = useSelector(selectUser); 
+  const user = useSelector(selectUser);
   const [input, setInput] = useState(' ');
   const [post, setPost] = useState([]);
 
@@ -32,11 +32,11 @@ function Feed() {
   const sendPost = (e) => {
     e.preventDefault();
     db.collection('post').add({
-        name:user.displayName,
-        description:user.email || "",
-        message:input,
-        photoUrl:user.photoUrl,
-        timestamp:firebase.firestore.FieldValue.serverTimestamp(),
+      name: user.displayName,
+      description: user.email || "",
+      message: input,
+      photoUrl: user.photoUrl,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     })
     setInput('');
   }
@@ -61,7 +61,16 @@ function Feed() {
         </div>
 
       </div>
-      <Posts />
+      {post.map((
+        { id, data: { name, description, message, photoUrl } }) => (
+        <Posts
+          key={id}
+          name={name}
+          description={description}
+          message={message}
+          photoUrl={photoUrl}
+        />
+      ))}
     </div>
   )
 }
