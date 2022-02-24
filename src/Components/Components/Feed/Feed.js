@@ -1,13 +1,46 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Feed.css'
+import Posts from './Posts'
+import { useSelector } from 'react-redux'
 import CreateIcon from '@material-ui/icons/Create'
 import InputOptions from './InputOptions'
-import ImageIcon from '@material-ui/icons/Image';
-import YouTubeIcon from '@material-ui/icons/YouTube';
-import EventNoteIcon from '@material-ui/icons/EventNote';
-import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay';
+import ImageIcon from '@material-ui/icons/Image'
+import YouTubeIcon from '@material-ui/icons/YouTube'
+import EventNoteIcon from '@material-ui/icons/EventNote'
+import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay'
+import db from '../../../Firebase'
+import firebase from "../../../Firebase"
+import { selectUser } from '../../../features/userSlice'
 
 function Feed() {
+
+  const user = useSelector(selectUser); 
+  const [input, setInput] = useState(' ');
+  const [post, setPost] = useState([]);
+
+  useEffect(() => {
+    db.collection('post').onSnapshot(snapshot => (
+      setPost(snapshot.docs.map(doc => (
+        {
+          id: doc.id,
+          data: doc.data()
+        }
+      )))
+    ))
+  }, [])
+
+  const sendPost = (e) => {
+    e.preventDefault();
+    db.collection('post').add({
+        name:user.displayName,
+        description:user.email || "",
+        message:input,
+        photoUrl:user.photoUrl,
+        timestamp:firebase.firestore.FieldValue.serverTimestamp(),
+    })
+    setInput('');
+  }
+
   return (
     <div className='feed'>
       <div className='feed_inputContainer'>
@@ -15,8 +48,8 @@ function Feed() {
           {/*Icon */}
           <CreateIcon />
           <form>
-            <input type='text' placeholder='Start a post ' />
-            <button type='submit'>send</button>
+            <input value={input} onChange={e => setInput(e.target.value)} type='text' placeholder='Start a post ' />
+            <button onClick={sendPost} type='submit'>send</button>
           </form>
         </div>
 
@@ -28,6 +61,7 @@ function Feed() {
         </div>
 
       </div>
+      <Posts />
     </div>
   )
 }
